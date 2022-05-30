@@ -1,0 +1,22 @@
+{
+  "name": "wixa",
+  "version": "1.0.0",
+  "description": "Wixa is a Discord Bot specialized in effectiveness, optimization, and speed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xictaw/Wixa.git"
+  },
+  "author": "Xictaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xictaw/Wixa/issues"
+  },
+  "homepage": "https://github.com/Xictaw/Wixa#readme",
+  "dependencies": {
+    "discord.js": "^13.7.0"
+  }
+}
