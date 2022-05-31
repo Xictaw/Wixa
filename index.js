@@ -26,18 +26,22 @@ for (const file of eventFiles) {
 	}
 }
 
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandFoldersPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(commandFoldersPath);
 
-for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
+for (const folder of commandFolders) {
+	const commandsFilesPath = path.join(commandFoldersPath, folder);
+    const commandFiles = fs.readdirSync(commandsFilesPath).filter(file => file.endsWith('.js'));
+    
+    for (const file of commandFiles) {
+	    const filePath = path.join(commandsFilesPath, file);
 
-	console.log(`Loading Command File : ${file}`);
-	const command = require(filePath);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
-	client.commands.set(command.data.name, command);
-	console.log('Command File Loaded ✅\n')
+		console.log(`Loading Command File : ${file}`);
+	    const command = require(filePath);
+        
+	    client.commands.set(command.data.name, command);
+		console.log('Command File Loaded ✅\n')
+    }
 }
 
 client.login(token);
